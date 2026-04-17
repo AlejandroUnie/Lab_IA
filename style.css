@@ -1,0 +1,194 @@
+/* ==========================================================================
+   Variables de Diseño
+   ========================================================================== */
+:root {
+    --bg-color: #f8f9fa;
+    --surface-color: #ffffff;
+    --text-main: #212529;
+    --text-muted: #6c757d;
+    --primary-color: #0d6efd;
+    --primary-hover: #0b5ed7;
+    --border-color: #dee2e6;
+    --output-bg: #e9ecef;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --border-radius: 8px;
+    --font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ==========================================================================
+   Reset y Estilos Base
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: var(--spacing-md);
+}
+
+h1, h2 {
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ==========================================================================
+   Layout Principal
+   ========================================================================== */
+header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg) auto;
+    padding-top: var(--spacing-md);
+}
+
+header p {
+    color: var(--text-muted);
+}
+
+main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+section {
+    background-color: var(--surface-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   Formularios y Entradas
+   ========================================================================== */
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-main);
+}
+
+select, textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    resize: vertical;
+}
+
+select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+/* ==========================================================================
+   Botones
+   ========================================================================== */
+button {
+    display: inline-block;
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: var(--spacing-sm);
+}
+
+#generate-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#generate-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+#clear-btn:hover {
+    background-color: #5a6268 !important;
+}
+
+#copy-btn {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    margin-top: var(--spacing-md);
+}
+
+#copy-btn:hover:not(:disabled) {
+    background-color: var(--output-bg);
+}
+
+#copy-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Zona de Resultados
+   ========================================================================== */
+.output-container {
+    background-color: var(--output-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    min-height: 250px;
+    margin-top: var(--spacing-md);
+}
+
+.placeholder-text {
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+/* ==========================================================================
+   Pie de Página
+   ========================================================================== */
+footer {
+    text-align: center;
+    margin-top: auto;
+    padding-top: var(--spacing-lg);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
