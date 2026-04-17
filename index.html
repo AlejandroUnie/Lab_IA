@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Pilot IA</title>
+    <meta name="description" content="App educativa para estructurar prompts de decisiones complejas asistidas por IA.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Decision Pilot IA</h1>
+        <p>Aprende a estructurar, parametrizar y probar prompts efectivos para tomar decisiones complejas asistidas por Inteligencia Artificial.</p>
+    </header>
+
+    <main>
+        <section class="config-section" aria-labelledby="config-title">
+            <h2 id="config-title">Configuración del Prompt</h2>
+            
+            <div class="form-group">
+                <label for="case-selector">Selecciona el Caso de Uso:</label>
+                <select id="case-selector" name="case-selector">
+                    <option value="" disabled selected>-- Elige una simulación --</option>
+                    <option value="admisiones">1. Admisión y becas universitarias</option>
+                    <option value="ti">2. Tickets internos de soporte TI</option>
+                    <option value="ecommerce">3. Devoluciones y fraude en e-commerce</option>
+                    <option value="documentacion">4. Asistente interno de documentación corporativa</option>
+                </select>
+            </div>
+
+            <div id="risk-warning-container" style="display: none; background-color: #fff3cd; color: #856404; padding: 10px; border-left: 4px solid #ffeeba; margin-bottom: 15px; border-radius: 4px;">
+                <strong>💡 Tip del Consultor (Riesgo):</strong> <span id="risk-warning-text"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="input-context">Contexto general (Obligatorio):</label>
+                <textarea id="input-context" rows="3" placeholder="Describe la situación actual..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="input-decision">Decisión a tomar (Obligatorio):</label>
+                <textarea id="input-decision" rows="2" placeholder="¿Cuál es el dilema exacto?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="input-data">Datos disponibles:</label>
+                <textarea id="input-data" rows="2" placeholder="Presupuestos o históricos relevantes..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="input-constraints">Restricciones:</label>
+                <textarea id="input-constraints" rows="2" placeholder="Reglas de negocio o límites..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="input-metrics">Métricas / Volumen básico:</label>
+                <textarea id="input-metrics" rows="2" placeholder="Ej: 500 tickets diarios, $15k presupuesto..."></textarea>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <button id="generate-btn" type="button">Generar Prompt</button>
+                <button id="clear-btn" type="button" style="background-color: #6c757d; color: white;">Limpiar</button>
+            </div>
+        </section>
+
+        <section class="output-section" aria-labelledby="output-title">
+            <h2 id="output-title">Resultado Generado</h2>
+            
+            <div class="output-container">
+                <p class="placeholder-text" id="output-placeholder">Completa los campos y haz clic en "Generar".</p>
+                <textarea id="prompt-output" readonly style="display: none; width: 100%; min-height: 300px; border: none; background: transparent; resize: none; font-family: inherit; color: inherit;"></textarea>
+            </div>
+            
+            <button id="copy-btn" type="button" disabled>Copiar al Portapapeles</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto "Decision Pilot IA" - Creado con fines educativos.</p>
+        <p><a href="#" target="_blank" rel="noopener noreferrer">Ver repositorio en GitHub</a> | Autores: [Tus Nombres Aquí]</p>
+    </footer>
+
+    <script src="prompts.js" defer></script>
+    <script src="app.js" defer></script>
+</body>
+</html>
